@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    margin-right: auto;
+
+}
+
+header {
+    background-color: #eee9e9;
+    color: black;
+    text-align: center;
+    padding: 1em;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #df94cd;
+    text-align: center;
+    padding: 1em 50px;;
+}
+
+section {
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: auto;
+}
+
+nav a:hover {
+    background-color:  #e5acd8;
+}
+
+#searchBar {
+    margin-right: auto;
+}
+
+img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 1em;
+}
