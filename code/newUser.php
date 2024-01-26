@@ -1,7 +1,7 @@
 <?php
 $server_name="localhost";
-$user_name="shachafpe_bookme";
-$password="123456";
+$user_name="shachafpe_liorz";
+$password="nAhIp+7hEGE";
 $database_name="shachafpe_bookme";
 
 //create connection
