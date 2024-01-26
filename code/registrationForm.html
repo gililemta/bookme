@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="loginPage.css">
-  <script src="script.js"></script>
-  <title>Login Page</title>
-</head>
-<body>
-  <div class="container">
-    <div id="registrationForm">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="loginPage.css" />
+    <script src="script.js"></script>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="form-container">
       <h2>יצירת חשבון חדש</h2>
-      <form id="registerForm" method="post" action="newUser.php">
-        <label for="newMail">כתובת אימייל:</label>
-        <input type="text" id="mail" name="mail" required>
+      <form class="form" id="registerForm" method="post" action="newUser.php">
+        <div class="form-group">
+          <label for="newMail">כתובת אימייל:</label>
+          <input type="text" id="mail" name="mail" required />
+        </div>
 
-        <label for="newPassword">סיסמא:</label>
-        <input type="password" id="password" name="password" required>
+        <div class="form-group">
+          <label for="newPassword">סיסמא:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
 
-        <label for="firstName">שם פרטי:</label>
-        <input type="text" id="first_name" name="first_name" required>
+        <div class="form-group">
+          <label for="firstName">שם פרטי:</label>
+          <input type="text" id="first_name" name="first_name" required />
+        </div>
 
-        <label for="lastName">שם משפחה:</label>
-        <input type="text" id="last_name" name="last_name" required>
+        <div class="form-group">
+          <label for="lastName">שם משפחה:</label>
+          <input type="text" id="last_name" name="last_name" required />
+        </div>
 
-        <label for="phone">טלפון:</label>
-        <input type="text" id="phone_number" name="phone_number" required>
+        <div class="form-group">
+          <label for="phone">טלפון:</label>
+          <input type="text" id="phone_number" name="phone_number" required />
+        </div>
 
-        <label for="city">עיר:</label>
-        <input type="text" id="cities" name="cities" required>
+        <div class="form-group">
+          <label for="city">עיר:</label>
+          <input type="text" id="cities" name="cities" required />
+        </div>
 
-        <button type="submit">צור חשבון</button>
+        <div class="form-group">
+          <button type="submit">צור חשבון</button>
+        </div>
       </form>
     </div>
-  </div>
+  </body>
+</html>
