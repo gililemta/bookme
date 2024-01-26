@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 300px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}

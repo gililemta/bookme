@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loginPage.css">
+  <script src="script.js"></script>
+  <title>Login Page</title>
+</head>
+<body>
+  <div class="container">
+    <h2>התחברות</h2>
+    <form id="loginForm">
+      <label for="mail">כתובת אימייל:</label>
+      <input type="text" id="mail" name="mail" required>
+
+      <label for="password">סיסמא:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="button" onclick="login()">התחבר</button>
+    </form>
+
+    <p>לא רשום למערכת? <a href="registrationForm.html">צור חשבון חדש</a></p>
+  </div>

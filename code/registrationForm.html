@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loginPage.css">
+  <script src="script.js"></script>
+  <title>Login Page</title>
+</head>
+<body>
+  <div class="container">
+    <div id="registrationForm">
+      <h2>יצירת חשבון חדש</h2>
+      <form id="registerForm" method="post" action="newUser.php">
+        <label for="newMail">כתובת אימייל:</label>
+        <input type="text" id="mail" name="mail" required>
+
+        <label for="newPassword">סיסמא:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="firstName">שם פרטי:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="lastName">שם משפחה:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="phone">טלפון:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+
+        <label for="city">עיר:</label>
+        <input type="text" id="cities" name="cities" required>
+
+        <button type="submit">צור חשבון</button>
+      </form>
+    </div>
+  </div>
