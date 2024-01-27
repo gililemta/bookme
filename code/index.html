@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="he">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Your Homepage</title>
-</head>
-<body>
-    <header>
-        <h1>BookMe</h1>
-    </header>
-
-    <nav>
-        <div>
-            <input type="text" id="searchBar" placeholder="Search">
-            <script src="script.js"></script>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="loginPage.css" />
+    <script src="script.js"></script>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>התחברות</h2>
+      <form class="form" method="post" action="signIn.php">
+        <div class="form-group">
+          <label for="mail">כתובת אימייל:</label>
+          <input type="text" id="mail" name="mail" required />
         </div>
-        <a href="#">Home</a>
-        <a href="#">My profile</a>
-        <a href="uploadbook.html">Upload a book</a>
-        <a href="#">About</a>
-    </nav>
 
-    <section>
-        <h2>Welcome to our website!</h2>
+        <div class="form-group">
+          <label for="password">סיסמא:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
 
-        <p>This is the homepage content. Feel free to add more sections, images, and customize the layout based on your needs.</p>
+        <div class="form-group">
+          <button type="submit">התחבר</button>
+        </div>
+      </form>
 
-        <a href="#">
-            <img class="img_home" src="your-image-1.jpg" alt="Image 1">
-        </a>
-
-        <a href="#">
-            <img class="img_home" src="your-image-2.jpg" alt="Image 2">
-        </a>
-    </section>
-</body>
+      <p>לא רשום למערכת? <a href="registrationForm.html">צור חשבון חדש</a></p>
+    </div>
+  </body>
 </html>
