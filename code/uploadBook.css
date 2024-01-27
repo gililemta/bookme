@@ -1,0 +1,139 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  margin-right: auto;
+  padding-bottom: 60px; /* Adjust this value based on the footer height */
+}
+
+/* Reset some default styles for better consistency */
+body,
+h2,
+form,
+label,
+input,
+select {
+  margin: 0;
+}
+
+/* Page styling */
+#pageData {
+  padding: 2em;
+}
+
+h2 {
+  text-align: center;
+  color: #333; /* Adjusted title color */
+}
+
+form {
+  text-align: right;
+}
+
+/* Style for form fields */
+label {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 0.5em;
+  color: #555; /* Adjusted label color for better contrast */
+}
+
+/* Use flexbox for side-by-side layout */
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: baseline;
+}
+
+#pageData input,
+select {
+  flex: 1;
+  padding: 8px;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+/* Style for the file input */
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 10px;
+  background-color: #df94cd;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+  background-color: #e5acd8;
+}
+
+/* Style for the success message */
+#uploadSuccessMessage {
+  color: green;
+  margin-top: 10px;
+}
+
+/* Style for the uploaded image */
+#uploadedImage {
+  max-width: 5%;
+  height: auto;
+  margin-top: 10px;
+  display: none; /* Initially hide the image */
+}
+
+/* Style for the city input and dropdown */
+#autocomplete-container {
+  margin-top: 1em;
+  position: relative;
+  display: inline-block;
+}
+
+#city-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  direction: rtl;
+}
+
+#autocomplete-dropdown {
+  position: absolute;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
+}
+
+#autocomplete-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#autocomplete-dropdown li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Style for the uploaded image */
+#bookPicture {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  display: none;
+}

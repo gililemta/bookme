@@ -37,9 +37,13 @@ values ('$mail',
 '$cities',
 '$phone_number')";
 
-echo $sql;
-if ($conn->query($sql)==FALSE){
-    echo "Can not add new user.  Error is: ".$conn->error;
+if ($conn->query($sql) === FALSE) {
+    // Error occurred, redirect to error page
+    header("Location: ./loginFailedPage.html");
+    exit();
+} else {
+    // Successful query, redirect to another page
+    header("Location: ./homePage.html");
     exit();
 }
 

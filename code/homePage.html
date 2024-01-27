@@ -1,43 +1,15 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Your Homepage</title>
-    <script>
-      fetch("check-session.php")
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.user_email) {
-            const userEmail = data.user_email;
-            sessionStorage.setItem("user_email", userEmail);
-          } else {
-            console.warn("unauthorized");
-            window.location.href = "unauthorizedPage.html";
-          }
-        })
-        .catch((error) => {
-          window.location.href = "unauthorizedPage.html";
-          console.error("Error:", error);
-        });
-    </script>
+    <script src="authentication/check-session.js"></script>
+    <script src="header/loadHeaderAndFooter.js"></script>
   </head>
   <body>
-    <header>
-      <h1>BookMe</h1>
-    </header>
-
-    <nav>
-      <div>
-        <input type="text" id="searchBar" placeholder="Search" />
-        <script src="script.js"></script>
-      </div>
-      <a href="#">Home</a>
-      <a href="#">My profile</a>
-      <a href="uploadbook.html">Upload a book</a>
-      <a href="#">About</a>
-    </nav>
+    <div id="header-container"></div>
 
     <section>
       <h2>Welcome to our website!</h2>
@@ -55,5 +27,7 @@
         <img class="img_home" src="your-image-2.jpg" alt="Image 2" />
       </a>
     </section>
+
+    <div id="footer-container"></div>
   </body>
 </html>
