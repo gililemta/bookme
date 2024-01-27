@@ -1,0 +1,28 @@
+header {
+  background-color: #eee9e9;
+  color: black;
+  text-align: center;
+  padding: 1em;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #df94cd;
+  text-align: center;
+  padding: 1em 50px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: auto;
+}
+
+nav a:hover {
+  background-color: #e5acd8;
+}
+
+#searchBar {
+  margin-right: auto;
+}

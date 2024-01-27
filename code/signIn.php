@@ -46,10 +46,12 @@ if ($result->num_rows == 1) {
     } else {
         // Passwords do not match
         header("Location: ./loginFailedPage.html");
+        exit();
     }
 } else {
     // No rows found
-    echo "Email not found";
+    header("Location: ./loginFailedPage.html");
+    exit();
 }
 
 // Close the statement and connection

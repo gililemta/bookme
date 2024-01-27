@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <title>Upload Book</title>
+    <link rel="stylesheet" href="uploadBook.css" />
     <script src="script.js"></script>
+    <script src="header/loadHeaderAndFooter.js"></script>
+    <title>Upload Book</title>
+  </head>
 
-</head>
-<header>
-    <h1>BookMe</h1>
-</header>
-<body>
+  <body>
+    <div id="header-container"></div>
+
     <div id="pageData">
-    <h2>
-        העלאת ספר
-    </h2>
-    <form action="/submit" method="post" enctype="multipart/form-data">
-        <h3>
-            פרטי ספר
-        </h3>
+      <h2>העלאת ספר</h2>
+      <form action="/submit" method="post" enctype="multipart/form-data">
+        <h3>פרטי ספר</h3>
 
         <div class="bookName">
-        <label for="bookName">שם הספר:</label>
-        <input type="text" id="field" name="bookName" required>
+          <label for="bookName">שם הספר:</label>
+          <input type="text" id="field" name="bookName" required />
         </div>
 
         <div class="authorName">
-        <label for="authorName" > שם הסופר/ת: </label>
-        <input type="text" id="field" name="authorName" required>
+          <label for="authorName"> שם הסופר/ת: </label>
+          <input type="text" id="field" name="authorName" required />
         </div>
 
         <div class="genreName">
-        <label for="genreName">ז׳אנר:</label></label>
-        <select id="genre" name="genre">
+          <label for="genreName">ז׳אנר:</label>
+          <select id="genre" name="genre">
             <option value="genre1">רומן</option>
             <option value="genre2">מדע בדיוני</option>
             <option value="genre3">קומיקס</option>
@@ -45,51 +41,57 @@
             <option value="genre8">פנטזיה</option>
             <option value="genre9">שירה</option>
             <option value="genre10">אחר</option>
-        </select>
-    </div>
+          </select>
+        </div>
 
         <!-- Picture Upload -->
         <div class="file-input-container">
-        <label for="bookPicture">העלאת תמונה: </label></label>
-        <label for="bookPicture" class="file-input-label" id="fileInputLabel">בחר קובץ</label>
-        <input type="file" id="bookPicture" name="bookPicture" accept="image/*" onchange="updateLabel()">
+          <label for="bookPicture">העלאת תמונה: </label>
+          <label for="bookPicture" class="file-input-label" id="fileInputLabel"
+            >בחר קובץ</label
+          >
+          <input
+            type="file"
+            id="bookPicture"
+            name="bookPicture"
+            accept="image/*"
+            onchange="updateLabel()"
+          />
         </div>
 
         <!-- Success Message -->
         <div id="uploadSuccessMessage"></div>
 
         <!-- Uploaded Image -->
-        <img id="uploadedImage" alt="Uploaded Image">
+        <img id="uploadedImage" alt="Uploaded Image" />
 
-        <h3>
-            פרטי העסקה
-        </h3>      
+        <h3>פרטי העסקה</h3>
 
         <div class="dealType">
-            <label for="dealType">אני מעוניין</label>
-            <select id="dealType" name="dealType" onchange="togglePriceField()">
-                <option value="deal1">להחליף</option>
-                <option value="deal2">למכור</option>
-            </select>
+          <label for="dealType">אני מעוניין</label>
+          <select id="dealType" name="dealType" onchange="togglePriceField()">
+            <option value="deal1">להחליף</option>
+            <option value="deal2">למכור</option>
+          </select>
         </div>
 
-        <div id="priceField" style="display: none;">
-            <label for="price">מחיר:</label>
-            <input type="text" id="price" name="price">
+        <div id="priceField" style="display: none">
+          <label for="price">מחיר:</label>
+          <input type="text" id="price" name="price" />
         </div>
 
-
-        <!-- need to find a way to autocomplete cities here --> 
+        <!-- need to find a way to autocomplete cities here -->
         <div class="city" id="autocomplete-container">
-            <label for="city">אני נמצא בעיר</label>
-            <input type="text" id="city-input" placeholder="הכנס שם עיר">
-            <ul id="autocomplete-dropdown"></ul>
-            </div>
+          <label for="city">אני נמצא בעיר</label>
+          <input type="text" id="city-input" placeholder="הכנס שם עיר" />
+          <ul id="autocomplete-dropdown"></ul>
         </div>
 
         <!-- Submit Button -->
-        <input type="submit" value="הוסף פריט">
-    </form>
-</div>
-</body>
+        <input type="submit" value="הוסף פריט" />
+      </form>
+    </div>
+
+    <div id="footer-container"></div>
+  </body>
 </html>
