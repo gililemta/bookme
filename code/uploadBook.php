@@ -14,10 +14,13 @@ if ($conn->connect_error){
 }
 
 // Check if a user is logged in and retrieve the user's email from the session
+session_start();
+
 if (isset($_SESSION['user_email'])) {
     $user_email = $_SESSION['user_email']; 
-    $user_cities = $_SESSION['user_cities'];
+    // $user_cities = $_SESSION['user_cities'];
 }
+
 
 //get info from html
 $book_name=$_POST['book_name'];
@@ -33,27 +36,29 @@ $book_required_price=$_POST['book_required_price'];
 $sql="insert into `books_users`
 (`book_name`,
 `book_author_name`,
-`book_genre`,
-`book_quantity`,
-`book_picture`,
-`deal_type`,
-`book_required_price`,
 `user_mail`,
-`user_cities`)
+`deal_type`,
+`book_quantity`,
+`book_genre`,
+`book_required_price`,
+`book_picture`,
+)
 values 
 ('$book_name',
 '$book_author_name',
+'$user_email',
+$deal_type,
+$book_quantity,
 '$book_genre',
-'$book_quantity',
-'$deal_type',
-'$book_required_price',
-'$user_mail',
-'$user_cities'
-)";
+$book_required_price,
+'$book_picture')";
+
+echo $sql;
 
 if ($conn->query($sql) === FALSE) {
     // Error occurred, redirect to error page
     // header("Location: ./loginFailedPage.html");
+    echo "failed";
     exit();
 } else {
     // Successful query, redirect to another page
