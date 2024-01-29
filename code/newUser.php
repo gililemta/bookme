@@ -39,7 +39,7 @@ values ('$mail',
 
 if ($conn->query($sql) === FALSE) {
     // Error occurred, redirect to error page
-    header("Location: ./loginFailedPage.html");
+    header("Location: ./registrationFailed.html");
     exit();
 } else {
     // Successful query, redirect to another page

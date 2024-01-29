@@ -20,15 +20,27 @@ select {
 /* Page styling */
 #pageData {
   padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 {
   text-align: center;
-  color: #333; /* Adjusted title color */
+  color: #333;
+  margin-bottom: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Choose an appropriate font-family */
+  font-size: 24px; /* Adjust the font size */
 }
 
 form {
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  width: 100%; /* Make the form take 100% width */
+  max-width: 400px; /* Set a maximum width for better readability */
 }
 
 /* Style for form fields */
@@ -36,7 +48,7 @@ label {
   display: inline-block;
   width: 150px;
   margin-bottom: 0.5em;
-  color: #555; /* Adjusted label color for better contrast */
+  color: #555;
 }
 
 /* Use flexbox for side-by-side layout */
@@ -50,10 +62,14 @@ label {
 #pageData input,
 select {
   flex: 1;
-  padding: 8px;
+  padding: 12px;
   margin-bottom: 1em;
   box-sizing: border-box;
   direction: rtl;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
 /* Style for the file input */
@@ -136,4 +152,19 @@ select {
   height: auto;
   margin-top: 10px;
   display: none;
+}
+
+/* Style for the submit button */
+#uploadBook {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#uploadBook:hover {
+  background-color: #45a049;
 }
