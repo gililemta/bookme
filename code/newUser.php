@@ -43,7 +43,7 @@ if ($conn->query($sql) === FALSE) {
     exit();
 } else {
     // Successful query, redirect to another page
-    header("Location: ./homePage.html");
+    header("Location: ./index.html");
     exit();
 }
 
