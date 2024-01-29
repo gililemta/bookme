@@ -22,7 +22,7 @@ $cities=$_POST['cities'];
 $phone_number=$_POST['phone_number'];
 
 
-//add use
+//add user
 $sql="insert into `users`
 (`mail`,
 `password`,
