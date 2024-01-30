@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   // Load the footer using fetch and insert it into the designated container
-  fetch("footer/footer.html")
+  fetch("../footer/footer.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("footer-container").innerHTML = html;
 
       var footerStyleLink = document.createElement("link");
       footerStyleLink.rel = "stylesheet";
-      footerStyleLink.href = "footer/footer.css";
+      footerStyleLink.href = "../footer/footer.css";
       document.head.appendChild(footerStyleLink);
     });
 });
