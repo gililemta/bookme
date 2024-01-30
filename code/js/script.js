@@ -106,3 +106,4 @@ document.addEventListener("DOMContentLoaded", function () {
     autocompleteDropdown.style.display = "none";
   }
 });
+
