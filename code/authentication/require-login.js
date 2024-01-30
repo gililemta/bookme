@@ -6,10 +6,10 @@ fetch("authentication/require-login.php")
       sessionStorage.setItem("user_email", userEmail);
     } else {
       console.warn("unauthorized");
-      window.location.href = "login.html";
+      window.location.href = "../login/login.html"; 
     }
   })
   .catch((error) => {
-    window.location.href = "login.html";
+    window.location.href = "../login/login.html"; 
     console.error("Error:", error);
   });

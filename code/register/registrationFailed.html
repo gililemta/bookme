@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <title>Error Page</title>
     <style>
       body {
@@ -40,7 +39,7 @@
         margin-top: 10px;
       }
 
-      .back-to-login {
+      .back-to-registration {
         margin-top: 20px;
         text-decoration: none;
         padding: 10px 20px;
@@ -52,16 +51,20 @@
         display: inline-block;
       }
 
-      .back-to-login:hover {
+      .back-to-registration:hover {
         background-color: #0056b3;
       }
     </style>
   </head>
   <body>
     <div class="error-container">
-      <div class="error-code">Login Failed</div>
-      <div class="error-message">Invalid username or password</div>
-      <a href="/" class="back-to-login">Back to Login</a>
+      <div class="error-code">Registration Failed</div>
+      <div class="error-message">
+        Please check your information and try again
+      </div>
+      <a href="registrationForm.html" class="back-to-registration"
+        >Back to Registration</a
+      >
     </div>
   </body>
 </html>
