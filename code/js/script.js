@@ -49,7 +49,7 @@ function togglePriceField() {
 
 // JavaScript function to autoconplete city name in city field
 document.addEventListener("DOMContentLoaded", function () {
-  const cityInput = document.getElementById("city-input");
+  const cityInput = document.getElementById("cities");
   const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
 
   cityInput.addEventListener("input", function () {
@@ -106,4 +106,3 @@ document.addEventListener("DOMContentLoaded", function () {
     autocompleteDropdown.style.display = "none";
   }
 });
-
