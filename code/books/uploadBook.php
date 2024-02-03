@@ -29,7 +29,7 @@ $book_genre=$_POST['book_genre'];
 $book_quantity=$_POST['book_quantity'];
 $book_picture=$_POST['book_picture'];
 $deal_type=$_POST['deal_type'];
-$book_required_price=$_POST['book_required_price'];
+$book_required_price=empty($_POST['book_required_price']) ? 'NULL' : $_POST['book_required_price'];
 
 
 //add book_user
@@ -41,7 +41,7 @@ $sql="insert into `books_users`
 `book_quantity`,
 `book_genre`,
 `book_required_price`,
-`book_picture`,
+`book_picture`
 )
 values 
 ('$book_name',
@@ -52,8 +52,6 @@ $book_quantity,
 '$book_genre',
 $book_required_price,
 '$book_picture')";
-
-echo $sql;
 
 if ($conn->query($sql) === FALSE) {
     // Error occurred, redirect to error page
