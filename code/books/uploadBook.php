@@ -55,8 +55,8 @@ $book_required_price,
 
 if ($conn->query($sql) === FALSE) {
     // Error occurred, redirect to error page
-    // header("Location: ./loginFailedPage.html");
-    echo "failed";
+    header("Location: ./duplicateBook.html");
+    // echo "failed";
     exit();
 } else {
     // Successful query, redirect to another page
