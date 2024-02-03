@@ -40,7 +40,7 @@ function togglePriceField() {
   var dealType = document.getElementById("dealType").value;
   var priceField = document.getElementById("priceField");
 
-  if (dealType === "deal2") {
+  if (dealType === "2") {
     priceField.style.display = "inline";
   } else {
     priceField.style.display = "none";
