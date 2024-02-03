@@ -114,7 +114,6 @@
           if ($row["deal_type"] == 1) {
             echo "<span>ספר להחלפה</span>";
           }
-          // echo "<p>כמות במלאי: " . $row["book_quantity"] . "</p>";
           echo "</div>";
         }
       } else {
