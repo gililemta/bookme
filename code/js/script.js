@@ -24,8 +24,8 @@ function updateLabel() {
   label.style.backgroundColor = "green";
 
   // Display success message
-  var successMessage = document.getElementById("uploadSuccessMessage");
-  successMessage.textContent = "התמונה הועלתה בהצלחה!";
+  // var successMessage = document.getElementById("uploadSuccessMessage");
+  // successMessage.textContent = "התמונה הועלתה בהצלחה!"
 
   // Display uploaded image
   var uploadedImage = document.getElementById("uploadedImage");
