@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  margin-right: auto;
+  padding-bottom: 60px; /* Adjust this value based on the footer height */
+}
+
+section {
+  text-align: center;
+}
+
+#img_home {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 1em;
+}
+
+h2 {
+  text-align: right;
+}
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px; /* Padding on the sides */
+  margin-bottom: 20px;
+}
+
+.book-item {
+  background: #fff; /* White background */
+  border: 1px solid #ddd; /* Light border for each item */
+  border-radius: 10px; /* Rounded corners for the items */
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  max-width: 350px; /* Maximum width for each book item */
+  margin: auto; /* Center the book item in the grid cell */
+}
+
+.book-item img {
+  width: 100%; /* Percentage of width relative to its container */
+  max-width: 200px; /* Maximum width for the image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.book-item #bookName {
+  text-align: center; /* Center text for title and price */
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#book_author_name {
+  margin-bottom: 10px;
+}

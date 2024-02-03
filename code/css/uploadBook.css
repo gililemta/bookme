@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Open Sans Hebrew", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -70,6 +70,7 @@ select {
   border-radius: 5px;
   font-size: 16px;
   transition: border-color 0.3s ease;
+  font-family: "Open Sans Hebrew", sans-serif;
 }
 
 /* Style for the file input */
@@ -156,15 +157,17 @@ select {
 
 /* Style for the submit button */
 #uploadBook {
-  background-color: #4caf50;
+  background-color: #df94cd;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 #uploadBook:hover {
-  background-color: #45a049;
+  background-color: #e5acd8;
+  cursor: pointer;
 }

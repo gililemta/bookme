@@ -41,7 +41,7 @@ if ($result->num_rows == 1) {
         // Set flag for successful login
         $_SESSION['login_success'] = true;
 
-        header("Location: ./index.html");
+        header("Location: /index.php");
         exit();
     } else {
         // Passwords do not match

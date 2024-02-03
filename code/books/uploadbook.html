@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="uploadBook.css" />
-    <script src="script.js"></script>
-    <script src="header/loadHeaderAndFooter.js"></script>
-    <script src="authentication/require-login.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/uploadBook.css" />
+    <script src="../js/script.js"></script>
+    <script src="../header/loadHeaderAndFooter.js"></script>
+    <script src="../authentication/require-login.js"></script>
     <title>Upload Book</title>
   </head>
 
@@ -32,30 +32,17 @@
         <div class="genreName">
           <label for="genreName">ז׳אנר:</label>
           <select id="genre" name="book_genre">
-            <option value="genre1">רומן</option>
-            <option value="genre2">מדע בדיוני</option>
-            <option value="genre3">קומיקס</option>
-            <option value="genre4">היסטוריה</option>
-            <option value="genre5">מסתורין</option>
-            <option value="genre6">ביוגרפיה</option>
-            <option value="genre7">ילדים</option>
-            <option value="genre8">פנטזיה</option>
-            <option value="genre9">שירה</option>
-            <option value="genre10">אחר</option>
+            <option value="רומן">רומן</option>
+            <option value="מדע בדיוני">מדע בדיוני</option>
+            <option value="קומיקס">קומיקס</option>
+            <option value="היסטוריה">היסטוריה</option>
+            <option value="מסתורין">מסתורין</option>
+            <option value="ביוגרפיה">ביוגרפיה</option>
+            <option value="ילדים">ילדים</option>
+            <option value="פנטזיה">פנטזיה</option>
+            <option value="שירה">שירה</option>
+            <option value="אחר">אחר</option>
           </select>
-        </div>
-
-        <div class="quantity">
-          <label for="quantity"> כמות ספרים: </label>
-          <input
-            type="number"
-            id="field"
-            name="book_quantity"
-            value="1"
-            min="1"
-            max="10"
-            required
-          />
         </div>
 
         <!-- Picture Upload -->
@@ -93,13 +80,6 @@
           <label for="price">מחיר:</label>
           <input type="text" id="price" name="book_required_price" />
         </div>
-
-        <!-- need to move this to the user profile
-        <div class="city" id="autocomplete-container">
-          <label for="city">אני נמצא בעיר</label>
-          <input type="text" id="city-input" placeholder="הכנס שם עיר" />
-          <ul id="autocomplete-dropdown"></ul>
-        </div> -->
 
         <!-- Submit Button -->
         <input id="uploadBook" type="submit" value="הוסף פריט" />

@@ -40,7 +40,7 @@ function togglePriceField() {
   var dealType = document.getElementById("dealType").value;
   var priceField = document.getElementById("priceField");
 
-  if (dealType === "deal2") {
+  if (dealType === "2") {
     priceField.style.display = "inline";
   } else {
     priceField.style.display = "none";
@@ -49,7 +49,7 @@ function togglePriceField() {
 
 // JavaScript function to autoconplete city name in city field
 document.addEventListener("DOMContentLoaded", function () {
-  const cityInput = document.getElementById("city-input");
+  const cityInput = document.getElementById("cities");
   const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
 
   cityInput.addEventListener("input", function () {
