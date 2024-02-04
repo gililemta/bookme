@@ -106,3 +106,15 @@ document.addEventListener("DOMContentLoaded", function () {
     autocompleteDropdown.style.display = "none";
   }
 });
+
+
+    // Function to show the indication bar
+    function showIndicationBar() {
+      document.getElementById('indicationBar').style.display = 'block';
+      setTimeout(hideIndicationBar, 5000); // Hide after 5 seconds
+    }
+
+    // Function to hide the indication bar
+    function hideIndicationBar() {
+      document.getElementById('indicationBar').style.display = 'none';
+    }
