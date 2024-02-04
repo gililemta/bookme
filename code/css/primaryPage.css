@@ -95,3 +95,21 @@ input[type="submit"]:hover {
 #autocomplete-dropdown li:hover {
   background-color: #e0e0e0;
 }
+
+
+/* CSS for the indication bar */
+    .indication-bar {
+      background-color: #d59bd2; /* Green */
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: none; /* Initially hidden */
+    }
+
+    .close-button {
+      float: right;
+      cursor: pointer;
+    }
