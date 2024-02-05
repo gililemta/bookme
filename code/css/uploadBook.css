@@ -89,6 +89,7 @@ select {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  text-align: center;
 }
 
 .file-input-label:hover {
@@ -103,7 +104,7 @@ select {
 
 /* Style for the uploaded image */
 #uploadedImage {
-  max-width: 5%;
+  max-width: 25%;
   height: auto;
   margin-top: 10px;
   display: none; /* Initially hide the image */

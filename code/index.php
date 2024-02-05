@@ -12,6 +12,11 @@
   </head>
   <body>
     <div id="header-container"></div>
+      <!-- Indication bar login -->
+  <div class="indication-bar" id="indicationBar">
+    התחברת בהצלחה!
+    <span class="close-button" onclick="hideIndicationBar()">x</span>
+  </div>
     <section>
       <form id="searchPanel" action="index.php" method="GET" autocomplete="false">
         <div>
@@ -124,6 +129,5 @@
       ?>
     </section>
 
-    <div id="footer-container"></div>
   </body>
 </html>
