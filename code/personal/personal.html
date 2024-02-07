@@ -9,14 +9,73 @@
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
     <script src="../authentication/require-login.js"></script>
     <script src="./getBooks.js"></script>
+    <script src="./getMyRequests.js"></script>
+    <script src="./getMyOffers.js"></script>
     <title>BookMe Homepage</title>
   </head>
   <body>
     <div id="header-container"></div>
-    <section>
-      <div class="books-container"></div>
-    </section>
+
+    <!-- Tabs -->
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'books')">
+        My Books
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'requests')">
+        My Deals
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'offers')">
+        My Purchases
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div id="books" class="tabcontent">
+      <section>
+        <div class="books-container"></div>
+      </section>
+    </div>
+
+    <div id="requests" class="tabcontent" style="display: none">
+      <div id="requests-container"></div>
+      <!-- Container for displaying deals -->
+    </div>
+
+    <div id="offers" class="tabcontent" style="display: none">
+      <div id="offers-container"></div>
+      <!-- Content for My Purchases -->
+    </div>
 
     <div id="footer-container"></div>
+
+    <script>
+      function openTab(evt, tabName) {
+        // Hide all tab content
+        var tabcontent = document.getElementsByClassName("tabcontent");
+        for (var i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Deactivate all tabs
+        var tablinks = document.getElementsByClassName("tablinks");
+        for (var i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+
+        // If "My Deals" tab is clicked, fetch the deals
+        if (tabName === "requests") {
+          fetchRequests(); // Function to fetch deals
+        } else if (tabName === "offers") {
+          fetchOffers();
+        }
+      }
+
+      // Set the default tab
+      document.getElementById("books").style.display = "block";
+    </script>
   </body>
 </html>
