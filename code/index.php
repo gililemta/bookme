@@ -109,7 +109,11 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           echo "<div class='book-item'>";
-          echo "<img src='" . $row["book_picture"] . "' alt='" . $row["book_name"] . "' />";
+          if (!empty($row["book_picture"])) {
+            echo "<img src='" . $row["book_picture"] . "' alt='" . $row["book_name"] . "' />";
+          } else {
+            echo "<img src=BookMeLogo.jpeg />";
+          }
           echo "<h3>" . $row["book_name"] . "</h3>";
           echo '<span id="book_author_name">' . $row["book_author_name"] . "</span>";
           echo "<span>ז'אנר: " . $row["book_genre"] . "</span>";
