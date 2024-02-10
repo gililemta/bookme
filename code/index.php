@@ -12,11 +12,6 @@
   </head>
   <body>
     <div id="header-container"></div>
-      <!-- Indication bar login -->
-  <div class="indication-bar" id="indicationBar">
-    התחברת בהצלחה!
-    <span class="close-button" onclick="hideIndicationBar()">x</span>
-  </div>
     <section>
       <form id="searchPanel" action="index.php" method="GET" autocomplete="false">
         <div>
@@ -26,17 +21,16 @@
             type="text"
             id="cities"
             name="cities"
-            value="<?php echo $_GET['cities']; ?>"
           />
           <ul id="autocomplete-dropdown" style="display: none"></ul>
         </div>
         <div>
           <label for="author">שם הספר:</label>
-          <input type="text" id="book" name="book" value="<?php echo $_GET['book']; ?>">
+          <input type="text" id="book" name="book" value="">
         </div>
         <div>
           <label for="author">שם סופר:</label>
-          <input type="text" id="author" name="author" value="<?php echo $_GET['author']; ?>">
+          <input type="text" id="author" name="author" value="">
         </div>
         <div>
         <label for="genre">ז'אנר:</label>
@@ -74,6 +68,15 @@
           <input type="submit" value="סנן ומיין">
         </div>
       </form>
+      <?php if (isset($_GET['message'])): ?>
+        <div id="message-container">
+            <?php
+            if ($_GET['message'] == 'ownbook') {
+                echo '<p style="color: green; text-align: center;">לא ניתן להציע על ספר שלך.</p>';
+            }
+            ?>
+        </div>
+    <?php endif; ?>
       <?php
       include 'db/db.php';
 
@@ -109,19 +112,23 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           echo "<div class='book-item'>";
+          $bookDetailUrl = "books/bookDetail.php?book_user_id=" . $row["book_user_id"]; // Assuming `book_user_id` is available
+          echo "<a href='" . $bookDetailUrl . "'>";
           if (!empty($row["book_picture"])) {
             echo "<img src='" . $row["book_picture"] . "' alt='" . $row["book_name"] . "' />";
           } else {
             echo "<img src=BookMeLogo.jpeg />";
           }
-          echo "<h3>" . $row["book_name"] . "</h3>";
-          echo '<span id="book_author_name">' . $row["book_author_name"] . "</span>";
-          echo "<span>ז'אנר: " . $row["book_genre"] . "</span>";
-          if (!empty($row["book_required_price"])) {
-            echo "<span>מחיר: " . $row["book_required_price"] . "</span>";
+          echo "<h3>" . $row["book_name"] . "</h3><br>";
+          echo '<span id="book_author_name">' . $row["book_author_name"] . "</span><br>";
+          echo "<span>ז'אנר: " . $row["book_genre"] . "</span><br>";
+          if ($row["deal_type"] == 2) {
+            if (!empty($row["book_required_price"])) {
+              echo "<span>מחיר: " . $row["book_required_price"] . "</span><br>";
+            }
           }
           if ($row["deal_type"] == 1) {
-            echo "<span>ספר להחלפה</span>";
+            echo "<span>ספר להחלפה</span><br>";
           }
           echo "</div>";
         }
@@ -129,9 +136,11 @@
         echo "0 results";
       }
       echo "</div>";
+      echo "</a>";
       $conn->close();
       ?>
     </section>
 
+    <div id="footer-container"></div>
   </body>
 </html>
