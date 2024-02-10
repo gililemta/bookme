@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Load the header using fetch and insert it into the designated container
-  fetch("/header/header.html")
+  fetch("/header/header.php")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("header-container").innerHTML = html;
