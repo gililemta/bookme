@@ -1,4 +1,4 @@
-fetch("/authentication/require-login.php")
+fetch("../authentication/require-login.php")
   .then((response) => response.json())
   .then((data) => {
     if (data.user_email) {
