@@ -1,20 +1,7 @@
 <?php
 session_start();
 
-$server_name="localhost";
-$user_name="shachafpe_liorz";
-$password="nAhIp+7hEGE";
-$database_name="shachafpe_bookme";
-
-//create connection
-$conn=new mysqli($server_name,$user_name,$password,$database_name);
-$conn->set_charset("utf8");
-
-//check the connection
-if ($conn->connect_error){
-    die("Connection failed: ".$conn->connect_error);
-}
-
+include '../db/db.php';
 //get info from html
 $mail=$_POST['mail'];
 $password=$_POST['password'];
@@ -41,6 +28,7 @@ if ($result->num_rows == 1) {
         // Set flag for successful login
         $_SESSION['login_success'] = true;
 
+    
         header("Location: /index.php");
         exit();
     } else {

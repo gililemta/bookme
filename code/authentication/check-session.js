@@ -1,4 +1,4 @@
-fetch("authentication/check-session.php")
+fetch("../authentication/check-session.php")
   .then((response) => response.json())
   .then((data) => {
     if (data.user_email) {

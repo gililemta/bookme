@@ -60,6 +60,7 @@ input[type="submit"]:hover {
 @media (max-width: 768px) {
   .book-item {
     width: calc(50% - 20px); /* 2 items per row on smaller screens */
+    height: calc(10%);
   }
   form {
     flex-direction: column;
@@ -96,20 +97,80 @@ input[type="submit"]:hover {
   background-color: #e0e0e0;
 }
 
+.book-detail-page {
+  max-width: 800px; /* or any max-width you prefer */
+  margin: 0 auto; /* This centers the container */
+  padding: 20px;
+  background-color: #fff; /* Adjust background color as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
 
-/* CSS for the indication bar */
-    .indication-bar {
-      background-color: #d59bd2; /* Green */
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: none; /* Initially hidden */
-    }
+.book-item-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+}
 
-    .close-button {
-      float: right;
-      cursor: pointer;
-    }
+.book-image-detail {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.book-info {
+  text-align: center; /* Center the text for RTL reading */
+  margin-top: 20px; /* Add some space above the book info */
+}
+
+.proposal-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space out form elements */
+}
+
+.submit-button {
+  text-align: center; /* Center the submit button */
+}
+
+.submit-button input[type="submit"] {
+  width: auto; /* Only as wide as necessary */
+  padding: 10px 20px; /* Larger click area */
+  background-color: #9C27B0; /* A nice purple, for example */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button input[type="submit"]:hover {
+  background-color: #7B1FA2; /* A darker purple on hover */
+}
+/* Reset default link styles within book items */
+.books-container .book-item a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Keeps the text color consistent with the rest of the content */
+  display: block; /* Makes the link fill the container for clickability */
+}
+
+/* Optional: Add a hover effect for the book items */
+.books-container .book-item:hover {
+  background-color: #f0f0f0; /* Slight background color on hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Style the book item content */
+.books-container .book-item {
+  border: 1px solid #ddd; /* Adds a subtle border */
+  padding: 15px;
+  border-radius: 5px; /* Rounds corners */
+  margin: 10px; /* Adds space between items */
+  text-align: center; /* Centers the text */
+}
+
+.books-container .book-item img {
+  max-width: 100%; /* Makes sure the image is responsive */
+  height: auto; /* Maintains the aspect ratio */
+}
