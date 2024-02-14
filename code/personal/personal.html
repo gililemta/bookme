@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/personal.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="css/primaryPage.css" />
     <script src="../header/loadHeaderAndFooter.js"></script>
@@ -19,31 +20,33 @@
     <!-- Tabs -->
     <div class="tab">
       <button class="tablinks active" onclick="openTab(event, 'books')">
-        My Books
+        הספרים שלי
       </button>
       <button class="tablinks" onclick="openTab(event, 'requests')">
-        My Deals
+        בקשות עבורי
       </button>
       <button class="tablinks" onclick="openTab(event, 'offers')">
-        My Purchases
+        בקשות שהגשתי
       </button>
     </div>
 
     <!-- Content -->
-    <div id="books" class="tabcontent">
-      <section>
-        <div class="books-container"></div>
-      </section>
-    </div>
+    <div id="allTabsDesign">
+      <div id="books" class="tabcontent">
+        <section>
+          <div class="books-container"></div>
+        </section>
+      </div>
 
-    <div id="requests" class="tabcontent" style="display: none">
-      <div id="requests-container"></div>
-      <!-- Container for displaying deals -->
-    </div>
+      <div id="requests" class="tabcontent" style="display: none">
+        <div id="requests-container"></div>
+        <!-- Container for displaying deals -->
+      </div>
 
-    <div id="offers" class="tabcontent" style="display: none">
-      <div id="offers-container"></div>
-      <!-- Content for My Purchases -->
+      <div id="offers" class="tabcontent" style="display: none">
+        <div id="offers-container"></div>
+        <!-- Content for My Purchases -->
+      </div>
     </div>
 
     <div id="footer-container"></div>

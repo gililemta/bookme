@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             bookItem.appendChild(img);
           } else {
             const img = document.createElement("img");
-            img.src = "/BookMeLogo.jpeg";
+            img.src = "/bookMeLogo.png";
             bookItem.appendChild(img);
           }
 

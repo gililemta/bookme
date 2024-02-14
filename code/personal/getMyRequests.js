@@ -14,20 +14,20 @@ function fetchRequests() {
           requestItem.classList.add("deal-item");
 
           // Create and populate elements for each deal
-          const sellerEmail = document.createElement("p");
-          sellerEmail.textContent = "Seller Email: " + deal.seller_mail;
-          requestItem.appendChild(sellerEmail);
+          // const sellerEmail = document.createElement("p");
+          // sellerEmail.textContent = "Seller Email: " + deal.seller_mail;
+          // requestItem.appendChild(sellerEmail);
 
-          const buyerEmail = document.createElement("p");
-          buyerEmail.textContent = "Buyer Email: " + deal.buyer_mail;
+          const buyerEmail = document.createElement("dealDetail");
+          buyerEmail.textContent = "שם הקונה:" + deal.buyer_mail;
           requestItem.appendChild(buyerEmail);
 
           const requeststatus = document.createElement("p");
-          requeststatus.textContent = "Deal Status: " + deal.deal_status;
+          requeststatus.textContent = "סטטוס עסקה:" + deal.deal_status;
           requestItem.appendChild(requeststatus);
 
           const paymentStatus = document.createElement("p");
-          paymentStatus.textContent = "Payment Status: " + deal.payment_status;
+          paymentStatus.textContent = "סטטוס תשלום:" + deal.payment_status;
           requestItem.appendChild(paymentStatus);
 
           requestsContainer.appendChild(requestItem);
