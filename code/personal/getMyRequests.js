@@ -48,6 +48,32 @@ function fetchRequests() {
             createProp("סטטוס תשלום", deal.payment_status)
           );
 
+          // Conditionally add "מחיר" or "ספרים מוצעים" based on deal_type
+          if (deal.deal_type === 2) {
+            // Add suggested price
+            requestItem.appendChild(
+              createProp("מחיר", deal.book_suggested_price)
+            );
+          } else if (deal.deal_type === 1) {
+            // Add suggested books
+            const suggestedBooks = document.createElement("div");
+            suggestedBooks.classList.add("deal-item-prop");
+            suggestedBooks.classList.add("suggested-books");
+
+            const titleElement = document.createElement("span");
+            titleElement.textContent = "ספרים מוצעים: ";
+            titleElement.classList.add("deal-item-title");
+
+            const booksList = document.createElement("span");
+            booksList.textContent = deal.suggested_books.join(", ");
+            booksList.classList.add("deal-item-value");
+
+            suggestedBooks.appendChild(titleElement);
+            suggestedBooks.appendChild(booksList);
+
+            requestItem.appendChild(suggestedBooks);
+          }
+
           // Append the deal item to the container
           requestsContainer.appendChild(requestItem);
         });

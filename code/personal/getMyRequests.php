@@ -55,6 +55,26 @@ if (isset($_SESSION['user_email'])) {
             'book_name' => $row['book_name'],
             'buyer_name' => $row['buyer_first_name'] . " " . $row['buyer_last_name']
         ];
+
+         // Conditionally fetch suggested books if deal_type is 1
+         if ($row['deal_type'] == 1) {
+            // Fetch suggested books based on IDs
+            $suggestedBooks = [];
+            $suggestedBookIds = explode(',', $row['suggested_books']);
+            foreach ($suggestedBookIds as $bookId) {
+                $bookQuery = "SELECT book_name FROM books_users WHERE book_user_id = ?";
+                $bookStmt = $conn->prepare($bookQuery);
+                $bookStmt->bind_param("i", $bookId);
+                $bookStmt->execute();
+                $bookResult = $bookStmt->get_result();
+                if ($bookRow = $bookResult->fetch_assoc()) {
+                    $suggestedBooks[] = $bookRow['book_name'];
+                }
+                $bookStmt->close();
+            }
+            $deal['suggested_books'] = $suggestedBooks;
+        }
+
         $response[] = $deal;
     }
 
