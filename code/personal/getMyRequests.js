@@ -14,7 +14,6 @@ function fetchRequests() {
           const requestItem = document.createElement("div");
           requestItem.classList.add("deal-item");
 
-          // Create and populate elements for each deal
           // Function to create title-value pairs and add them to the deal item
           function createProp(title, value) {
             const propContainer = document.createElement("div");
@@ -34,24 +33,31 @@ function fetchRequests() {
             return propContainer;
           }
 
+          // Create the props container
+          const propsContainer = document.createElement("div");
+          propsContainer.classList.add("deal-fields");
+          propsContainer.style.flex = "5";
+
           // Add book name
-          requestItem.appendChild(createProp("שם הספר", deal.book_name));
+          propsContainer.appendChild(createProp("שם הספר", deal.book_name));
 
           // Add buyer name
-          requestItem.appendChild(createProp("שם הקונה", deal.buyer_name));
+          propsContainer.appendChild(createProp("שם הקונה", deal.buyer_name));
 
           // Add deal status
-          requestItem.appendChild(createProp("סטטוס עסקה", deal.deal_status));
+          propsContainer.appendChild(
+            createProp("סטטוס עסקה", deal.deal_status)
+          );
 
           // Add payment status
-          requestItem.appendChild(
+          propsContainer.appendChild(
             createProp("סטטוס תשלום", deal.payment_status)
           );
 
           // Conditionally add "מחיר" or "ספרים מוצעים" based on deal_type
           if (deal.deal_type === 2) {
             // Add suggested price
-            requestItem.appendChild(
+            propsContainer.appendChild(
               createProp("מחיר", deal.book_suggested_price)
             );
           } else if (deal.deal_type === 1) {
@@ -71,8 +77,13 @@ function fetchRequests() {
             suggestedBooks.appendChild(titleElement);
             suggestedBooks.appendChild(booksList);
 
-            requestItem.appendChild(suggestedBooks);
+            propsContainer.appendChild(suggestedBooks);
           }
+
+          // Create the buttons container
+          const buttonsContainer = document.createElement("div");
+          buttonsContainer.classList.add("deal-actions");
+          buttonsContainer.style.flex = "1";
 
           // Add confirm button
           const confirmButton = document.createElement("button");
@@ -82,7 +93,7 @@ function fetchRequests() {
             // Add logic for confirming the deal here
             console.log("Deal confirmed:", deal);
           });
-          requestItem.appendChild(confirmButton);
+          buttonsContainer.appendChild(confirmButton);
 
           // Add reject button
           const rejectButton = document.createElement("button");
@@ -92,7 +103,11 @@ function fetchRequests() {
             // Add logic for rejecting the deal here
             console.log("Deal rejected:", deal);
           });
-          requestItem.appendChild(rejectButton);
+          buttonsContainer.appendChild(rejectButton);
+
+          // Append the props and buttons containers to the deal item
+          requestItem.appendChild(propsContainer);
+          requestItem.appendChild(buttonsContainer);
 
           // Append the deal item to the container
           requestsContainer.appendChild(requestItem);

@@ -1,8 +1,21 @@
+/* Style for deal actions container */
+.deal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Style for deal fields container */
+.deal-fields {
+  flex: 5;
+  display: flex;
+  justify-content: space-around;
+}
+
 /* Style for deal item container */
 .deal-item {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -44,6 +57,7 @@
 
 .reject-button {
   background-color: #f44336; /* Red background color */
+  margin-right: 10px;
 }
 
 /* Style hover effect for buttons */
