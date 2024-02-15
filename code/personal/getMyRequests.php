@@ -20,13 +20,17 @@ if (isset($_SESSION['user_email'])) {
 
     $response = [];
 
-    // SQL to fetch deals data
-    $sql = "SELECT * FROM deals WHERE seller_mail = ?";
+    // SQL to fetch deals data with book name and buyer name
+    $sql = "SELECT deals.*, books_users.book_name, users.first_name AS buyer_first_name, users.last_name AS buyer_last_name 
+            FROM deals
+            INNER JOIN books_users ON deals.book_user_id = books_users.book_user_id
+            INNER JOIN users ON deals.buyer_mail = users.mail
+            WHERE deals.seller_mail = ?";
 
     // Use prepared statement to prevent SQL injection
     $stmt = $conn->prepare($sql);
 
-    // Bind buyer_mail parameter
+    // Bind seller_mail parameter
     $stmt->bind_param("s", $user_email);
 
     // Execute the statement
@@ -47,7 +51,9 @@ if (isset($_SESSION['user_email'])) {
             'payment_status' => $row['payment_status'],
             'book_required_price' => $row['book_required_price'],
             'book_suggested_price' => $row['book_suggested_price'],
-            'suggested_books' => $row['suggested_books']
+            'suggested_books' => $row['suggested_books'],
+            'book_name' => $row['book_name'],
+            'buyer_name' => $row['buyer_first_name'] . " " . $row['buyer_last_name']
         ];
         $response[] = $deal;
     }

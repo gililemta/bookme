@@ -10,26 +10,45 @@ function fetchRequests() {
 
       if (data && data.length > 0) {
         data.forEach((deal) => {
+          // Create the deal item container
           const requestItem = document.createElement("div");
           requestItem.classList.add("deal-item");
 
           // Create and populate elements for each deal
-          // const sellerEmail = document.createElement("p");
-          // sellerEmail.textContent = "Seller Email: " + deal.seller_mail;
-          // requestItem.appendChild(sellerEmail);
+          // Function to create title-value pairs and add them to the deal item
+          function createProp(title, value) {
+            const propContainer = document.createElement("div");
+            propContainer.classList.add("deal-item-prop");
 
-          const buyerEmail = document.createElement("dealDetail");
-          buyerEmail.textContent = "שם הקונה:" + deal.buyer_mail;
-          requestItem.appendChild(buyerEmail);
+            const titleElement = document.createElement("span");
+            titleElement.textContent = title + ": ";
+            titleElement.classList.add("deal-item-title");
 
-          const requeststatus = document.createElement("p");
-          requeststatus.textContent = "סטטוס עסקה:" + deal.deal_status;
-          requestItem.appendChild(requeststatus);
+            const valueElement = document.createElement("span");
+            valueElement.textContent = value;
+            valueElement.classList.add("deal-item-value");
 
-          const paymentStatus = document.createElement("p");
-          paymentStatus.textContent = "סטטוס תשלום:" + deal.payment_status;
-          requestItem.appendChild(paymentStatus);
+            propContainer.appendChild(titleElement);
+            propContainer.appendChild(valueElement);
 
+            return propContainer;
+          }
+
+          // Add book name
+          requestItem.appendChild(createProp("שם הספר", deal.book_name));
+
+          // Add buyer name
+          requestItem.appendChild(createProp("שם הקונה", deal.buyer_name));
+
+          // Add deal status
+          requestItem.appendChild(createProp("סטטוס עסקה", deal.deal_status));
+
+          // Add payment status
+          requestItem.appendChild(
+            createProp("סטטוס תשלום", deal.payment_status)
+          );
+
+          // Append the deal item to the container
           requestsContainer.appendChild(requestItem);
         });
       } else {
