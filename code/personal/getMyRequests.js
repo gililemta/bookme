@@ -74,6 +74,26 @@ function fetchRequests() {
             requestItem.appendChild(suggestedBooks);
           }
 
+          // Add confirm button
+          const confirmButton = document.createElement("button");
+          confirmButton.textContent = "אישור";
+          confirmButton.classList.add("confirm-button");
+          confirmButton.addEventListener("click", () => {
+            // Add logic for confirming the deal here
+            console.log("Deal confirmed:", deal);
+          });
+          requestItem.appendChild(confirmButton);
+
+          // Add reject button
+          const rejectButton = document.createElement("button");
+          rejectButton.textContent = "דחייה";
+          rejectButton.classList.add("reject-button");
+          rejectButton.addEventListener("click", () => {
+            // Add logic for rejecting the deal here
+            console.log("Deal rejected:", deal);
+          });
+          requestItem.appendChild(rejectButton);
+
           // Append the deal item to the container
           requestsContainer.appendChild(requestItem);
         });

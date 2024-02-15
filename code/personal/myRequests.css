@@ -6,7 +6,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* Style for deal item properties */
@@ -26,4 +26,28 @@
 /* Style for deal item property values */
 .deal-item-value {
   /* Add any specific styling for property values here */
+}
+
+.confirm-button,
+.reject-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #4caf50; /* Green background color */
+}
+
+.reject-button {
+  background-color: #f44336; /* Red background color */
+}
+
+/* Style hover effect for buttons */
+.confirm-button:hover,
+.reject-button:hover {
+  opacity: 0.8;
 }
