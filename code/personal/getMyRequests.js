@@ -92,9 +92,35 @@ function fetchRequests() {
           confirmButton.addEventListener("click", () => {
             // Add logic for confirming the deal here
             console.log("Deal confirmed:", deal);
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'postConfirm.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Set content type to form-encoded
+            
+            xhr.onload = function () {
+              if (xhr.status == 200) {
+                console.log(xhr.responseText);
+              } else {
+                console.error('Request failed. Status: ' + xhr.status);
+              }
+            };
+            
+            xhr.onerror = function () {
+              console.error('Request failed');
+            };
+            
+            xhr.timeout = 2000; 
+            
+            // Construct the form-encoded data
+            var formData = 'id=' + encodeURIComponent(deal.deal_id) + '&status=' + encodeURIComponent('אושר');
+            
+            // Send the request with the form-encoded data
+            xhr.send(formData);
+
+            xhr.send(JSON.stringify(requestData));
           });
           buttonsContainer.appendChild(confirmButton);
-
+ 
           // Add reject button
           const rejectButton = document.createElement("button");
           rejectButton.textContent = "דחייה";
