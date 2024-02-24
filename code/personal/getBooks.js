@@ -47,6 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
             bookItem.appendChild(dealSpan);
           }
 
+          const quantitySpan = document.createElement("span");
+          quantitySpan.id = "book_quantity";
+          quantitySpan.textContent ="כמות: " + book.book_quantity;
+          bookItem.appendChild(quantitySpan);
+
           booksContainer.appendChild(bookItem);
         });
       } else {

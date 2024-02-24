@@ -45,6 +45,7 @@ if (isset($_SESSION['user_email'])) {
             'book_required_price' => $row['book_required_price'],
             'deal_type' => $row['deal_type'],
             'book_picture' => $row['book_picture'],
+            'book_quantity' => $row['book_quantity'],
         ];
         $response['books'][] = $book;
     }
