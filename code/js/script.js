@@ -29,26 +29,26 @@ function togglePriceField() {
 }
 
 // JavaScript function to autoconplete city name in city field
-// document.addEventListener("DOMContentLoaded", function () {
-//   const cityInput = document.getElementById("cities");
-//   const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
+document.addEventListener("DOMContentLoaded", function () {
+  const cityInput = document.getElementById("cities");
+  const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
 
-//   cityInput.addEventListener("input", function () {
-//     const inputValue = cityInput.value.trim();
+  cityInput.addEventListener("input", function () {
+    const inputValue = cityInput.value.trim();
 
-//     if (inputValue.length > 2) {
-//       // Fetch data from the API
-//       fetchCityData(inputValue)
-//         .then((data) => {
-//           displayAutocomplete(inputValue, data);
-//         })
-//         .catch((error) => {
-//           console.error("Error fetching data:", error);
-//         });
-//     } else {
-//       clearAutocomplete();
-//     }
-//   });
+    if (inputValue.length > 2) {
+      // Fetch data from the API
+      fetchCityData(inputValue)
+        .then((data) => {
+          displayAutocomplete(inputValue, data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    } else {
+      clearAutocomplete();
+    }
+  });
 
   function fetchCityData(query) {
     const apiUrl = `https://data.gov.il/api/3/action/datastore_search?resource_id=5c78e9fa-c2e2-4771-93ff-7f400a12f7ba`;
@@ -86,4 +86,4 @@ function togglePriceField() {
     // Hide the dropdown
     autocompleteDropdown.style.display = "none";
   }
-
+});
