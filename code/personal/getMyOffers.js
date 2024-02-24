@@ -1,3 +1,31 @@
+function updateStatus(deal_id, status) {
+  // Create a new XMLHttpRequest object
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'postConfirm.php');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Set content type to form-encoded
+  
+  xhr.onload = function () {
+    if (xhr.status == 200) {
+      console.log(xhr.responseText);
+      fetchOffers();
+    } else {
+      console.error('Request failed. Status: ' + xhr.status);
+    }
+  };
+  
+  xhr.onerror = function () {
+    console.error('Request failed');
+  };
+  
+  xhr.timeout = 2000; 
+  
+  // Construct the form-encoded data
+  var formData = 'id=' + encodeURIComponent(deal_id) + '&status=' + encodeURIComponent(status);
+  
+  // Send the request with the form-encoded data
+  xhr.send(formData);
+}
+
 // Function to fetch offers
 function fetchOffers() {
   fetch("getMyOffers.php")
@@ -46,9 +74,9 @@ function fetchOffers() {
           );
 
           // Add payment status
-          propsContainer.appendChild(
-            createProp("סטטוס התשלום", deal.payment_status)
-          );
+          //propsContainer.appendChild(
+          //  createProp("סטטוס התשלום", deal.payment_status)
+          //);
 
           // Conditionally add "מחיר" or "ספרים מוצעים" based on deal_type
           if (deal.deal_type === 2) {
@@ -80,6 +108,27 @@ function fetchOffers() {
           const buttonsContainer = document.createElement("div");
           buttonsContainer.classList.add("deal-actions");
 
+          // Add confirm button
+          const confirmButton = document.createElement("button");
+          confirmButton.textContent = "קיבלתי את הספר!";
+          confirmButton.classList.add("confirm-button");
+          confirmButton.addEventListener("click", () => {
+            // Add logic for confirming the deal here
+            console.log("Deal confirmed:", deal);
+            updateStatus(deal.deal_id, 'הושלם');
+          });
+          const moreDetails = document.createElement("button");
+          moreDetails.textContent = "לתיאום מסירה";
+          moreDetails.classList.add("more-info-button");
+          moreDetails.addEventListener("click", () => {
+            // Add logic for confirming the deal here
+            window.location.href="sellerDetails.php?deal_id="+deal.deal_id;
+          });
+          if (deal.deal_status == 'אושר') { 
+            buttonsContainer.appendChild(confirmButton);
+            buttonsContainer.appendChild(moreDetails);
+          }
+
           // Add reject button
           const rejectButton = document.createElement("button");
           rejectButton.textContent = "ביטול";
@@ -87,6 +136,7 @@ function fetchOffers() {
           rejectButton.addEventListener("click", () => {
             // Add logic for rejecting the deal here
             console.log("Deal rejected:", deal);
+            updateStatus(deal.deal_id, 'בוטל');
           });
           buttonsContainer.appendChild(rejectButton);
 
@@ -95,7 +145,9 @@ function fetchOffers() {
           offerItem.appendChild(buttonsContainer);
 
           // Append the offer item to the container
-          offersContainer.appendChild(offerItem);
+          if (deal.deal_status != 'הושלם' && deal.deal_status != 'בוטל') {
+            offersContainer.appendChild(offerItem);
+          }
         });
       } else {
         const noOffersMessage = document.createElement("p");

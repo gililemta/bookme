@@ -1,3 +1,31 @@
+function updateStatusRequests(deal_id, status) {
+  // Create a new XMLHttpRequest object
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'postConfirm.php');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Set content type to form-encoded
+  
+  xhr.onload = function () {
+    if (xhr.status == 200) {
+      console.log(xhr.responseText);
+      fetchRequests();
+    } else {
+      console.error('Request failed. Status: ' + xhr.status);
+    }
+  };
+  
+  xhr.onerror = function () {
+    console.error('Request failed');
+  };
+  
+  xhr.timeout = 2000; 
+  
+  // Construct the form-encoded data
+  var formData = 'id=' + encodeURIComponent(deal_id) + '&status=' + encodeURIComponent(status);
+  
+  // Send the request with the form-encoded data
+  xhr.send(formData);
+}
+
 // Function to fetch requests
 function fetchRequests() {
   fetch("getMyRequests.php")
@@ -50,9 +78,9 @@ function fetchRequests() {
           );
 
           // Add payment status
-          propsContainer.appendChild(
-            createProp("סטטוס תשלום", deal.payment_status)
-          );
+          //propsContainer.appendChild(
+          //  createProp("סטטוס התשלום", deal.payment_status)
+          //);
 
           // Conditionally add "מחיר" or "ספרים מוצעים" based on deal_type
           if (deal.deal_type === 2) {
@@ -92,42 +120,20 @@ function fetchRequests() {
           confirmButton.addEventListener("click", () => {
             // Add logic for confirming the deal here
             console.log("Deal confirmed:", deal);
-            // Create a new XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'postConfirm.php');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Set content type to form-encoded
-            
-            xhr.onload = function () {
-              if (xhr.status == 200) {
-                console.log(xhr.responseText);
-              } else {
-                console.error('Request failed. Status: ' + xhr.status);
-              }
-            };
-            
-            xhr.onerror = function () {
-              console.error('Request failed');
-            };
-            
-            xhr.timeout = 2000; 
-            
-            // Construct the form-encoded data
-            var formData = 'id=' + encodeURIComponent(deal.deal_id) + '&status=' + encodeURIComponent('אושר');
-            
-            // Send the request with the form-encoded data
-            xhr.send(formData);
-
-            xhr.send(JSON.stringify(requestData));
+            updateStatusRequests(deal.deal_id, 'אושר');
           });
-          buttonsContainer.appendChild(confirmButton);
+          if (deal.deal_status == 'בתהליך') { 
+            buttonsContainer.appendChild(confirmButton);
+          }
  
           // Add reject button
           const rejectButton = document.createElement("button");
-          rejectButton.textContent = "דחייה";
+          rejectButton.textContent = deal.deal_status == 'בתהליך' ? "דחייה" : 'ביטול';
           rejectButton.classList.add("reject-button");
           rejectButton.addEventListener("click", () => {
             // Add logic for rejecting the deal here
             console.log("Deal rejected:", deal);
+            updateStatusRequests(deal.deal_id, 'בוטל');
           });
           buttonsContainer.appendChild(rejectButton);
 
@@ -136,7 +142,9 @@ function fetchRequests() {
           requestItem.appendChild(buttonsContainer);
 
           // Append the deal item to the container
-          requestsContainer.appendChild(requestItem);
+          if (deal.deal_status != 'בוטל') {
+            requestsContainer.appendChild(requestItem);
+          }
         });
       } else {
         const noRequestsMessage = document.createElement("p");
