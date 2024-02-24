@@ -62,6 +62,8 @@ if ($result->num_rows > 0) {
             <div class="form-group">
                 <label for="cities">עיר:</label>
                 <input type="text" id="cities" name="cities" value="<?php echo htmlspecialchars($userDetails['cities']); ?>" required />
+
+          <ul id="autocomplete-dropdown" style="display: none"></ul>
             </div>
 
             <div class="form-group">
