@@ -136,7 +136,9 @@ function fetchOffers() {
           rejectButton.addEventListener("click", () => {
             // Add logic for rejecting the deal here
             console.log("Deal rejected:", deal);
-            updateStatus(deal.deal_id, 'בוטל');
+            if (confirm("בטוח שברצונך לבטל?")) {
+              updateStatus(deal.deal_id, 'בוטל');
+            }
           });
           buttonsContainer.appendChild(rejectButton);
 
