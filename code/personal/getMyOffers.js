@@ -10,26 +10,91 @@ function fetchOffers() {
 
       if (data && data.length > 0) {
         data.forEach((deal) => {
+          // Create the offer item container
           const offerItem = document.createElement("div");
           offerItem.classList.add("deal-item");
 
-          // Create and populate elements for each deal
-          const sellerEmail = document.createElement("p");
-          sellerEmail.textContent = "Seller Email: " + deal.seller_mail;
-          offerItem.appendChild(sellerEmail);
+          // Function to create title-value pairs and add them to the offer item
+          function createProp(title, value) {
+            const propContainer = document.createElement("div");
+            propContainer.classList.add("deal-item-prop");
 
-          const buyerEmail = document.createElement("p");
-          buyerEmail.textContent = "Buyer Email: " + deal.buyer_mail;
-          offerItem.appendChild(buyerEmail);
+            const titleElement = document.createElement("span");
+            titleElement.textContent = title + ": ";
+            titleElement.classList.add("deal-item-title");
 
-          const offerstatus = document.createElement("p");
-          offerstatus.textContent = "Deal Status: " + deal.deal_status;
-          offerItem.appendChild(offerstatus);
+            const valueElement = document.createElement("span");
+            valueElement.textContent = value;
+            valueElement.classList.add("deal-item-value");
 
-          const paymentStatus = document.createElement("p");
-          paymentStatus.textContent = "Payment Status: " + deal.payment_status;
-          offerItem.appendChild(paymentStatus);
+            propContainer.appendChild(titleElement);
+            propContainer.appendChild(valueElement);
 
+            return propContainer;
+          }
+
+          // Create the props container
+          const propsContainer = document.createElement("div");
+          propsContainer.classList.add("deal-fields");
+
+          // Add seller email
+          propsContainer.appendChild(createProp("שם המוכר", deal.seller_name));
+
+          // Add deal status
+          propsContainer.appendChild(
+            createProp("סטטוס העסקה", deal.deal_status)
+          );
+
+          // Add payment status
+          propsContainer.appendChild(
+            createProp("סטטוס התשלום", deal.payment_status)
+          );
+
+          // Conditionally add "מחיר" or "ספרים מוצעים" based on deal_type
+          if (deal.deal_type === 2) {
+            // Add suggested price
+            propsContainer.appendChild(
+              createProp("מחיר", deal.book_suggested_price)
+            );
+          } else if (deal.deal_type === 1) {
+            // Add suggested books
+            const suggestedBooks = document.createElement("div");
+            suggestedBooks.classList.add("deal-item-prop");
+            suggestedBooks.classList.add("suggested-books");
+
+            const titleElement = document.createElement("span");
+            titleElement.textContent = "ספרים מוצעים: ";
+            titleElement.classList.add("deal-item-title");
+
+            const booksList = document.createElement("span");
+            booksList.textContent = deal.suggested_books.join(", ");
+            booksList.classList.add("deal-item-value");
+
+            suggestedBooks.appendChild(titleElement);
+            suggestedBooks.appendChild(booksList);
+
+            propsContainer.appendChild(suggestedBooks);
+          }
+
+          // Create the buttons container
+          const buttonsContainer = document.createElement("div");
+          buttonsContainer.classList.add("deal-actions");
+
+          // Add reject button
+          const rejectButton = document.createElement("button");
+          rejectButton.textContent = "ביטול";
+          rejectButton.classList.add("reject-button");
+          rejectButton.addEventListener("click", () => {
+            // Add logic for rejecting the deal here
+            console.log("Deal rejected:", deal);
+          });
+          buttonsContainer.appendChild(rejectButton);
+
+          // Append the props and buttons containers to the offer item
+          offerItem.appendChild(propsContainer);
+          offerItem.appendChild(buttonsContainer);
+
+          // Append the offer item to the container
           offersContainer.appendChild(offerItem);
         });
       } else {

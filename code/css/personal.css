@@ -78,23 +78,3 @@
   border-top: none;
   border-radius: 0 0 8px 8px; /* Adjust border-radius for bottom corners */
 }
-
-.deal-item {
-  background: #fff; /* White background */
-  border: 1px solid #ddd; /* Light border for each item */
-  border-radius: 10px; /* Rounded corners for the items */
-  padding: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  width: 200px;
-  height: 300px; 
-  margin: 16px; /* Center the book item in the grid cell */
-  justify-content: flex-end;
-}
-
-dealDetail {
-  display: inline;
-  color: pink;
-}
