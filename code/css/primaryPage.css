@@ -160,6 +160,8 @@ input[type="submit"]:hover {
   text-decoration: none; /* Removes underline from links */
   color: inherit; /* Keeps the text color consistent with the rest of the content */
   display: block; /* Makes the link fill the container for clickability */
+  height: 100%;
+  width: 100%;
 }
 
 /* Optional: Add a hover effect for the book items */

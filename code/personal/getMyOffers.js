@@ -64,6 +64,9 @@ function fetchOffers() {
           // Create the props container
           const propsContainer = document.createElement("div");
           propsContainer.classList.add("deal-fields");
+          
+          // Add book name
+          propsContainer.appendChild(createProp("שם הספר", deal.book_name));
 
           // Add seller email
           propsContainer.appendChild(createProp("שם המוכר", deal.seller_name));

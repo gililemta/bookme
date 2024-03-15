@@ -48,7 +48,7 @@ h2 {
 
 .book-item img {
   max-width: 50% !important;
-  height: auto !important; /* Maintains the aspect ratio */
+  height: 40% !important; /* Maintains the aspect ratio */
 }
 
 
