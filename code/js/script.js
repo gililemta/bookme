@@ -27,13 +27,30 @@ function togglePriceField() {
     priceField.style.display = "none";
   }
 }
+// JavaScript function to reset all filters
+function resetFilters() {
+  // Reset text inputs
+  document.getElementById('cities').value = '';
+  document.getElementById('book').value = '';
+  document.getElementById('author').value = '';
+  
+  // Reset select elements to their first option
+  document.getElementById('genre').selectedIndex = 0;
+  document.getElementById('deal_type').selectedIndex = 0;
+  document.getElementById('sort').selectedIndex = 0;
 
+  document.getElementById('searchPanel').submit();
+}
+
+console.log('Cities will load!');
 // JavaScript function to autoconplete city name in city field
 document.addEventListener("DOMContentLoaded", function () {
+  console.log('Cities loaded!');
   const cityInput = document.getElementById("cities");
   const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
 
   cityInput.addEventListener("input", function () {
+    console.log('Cities input change!');
     const inputValue = cityInput.value.trim();
 
     if (inputValue.length > 2) {

@@ -1,20 +1,37 @@
 .header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #eee9e9;
   color: black;
   text-align: center;
   font-family: "Open Sans Hebrew", sans-serif;
 }
+.logo {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: 10px;
+}
+.header-container > header {
+  display: flex;
+  justify-content: space-between; /* Keep items spaced on mobile */
+  align-items: center;
+  position: relative;
+}
 
-nav {
+.header-container nav {
+  display: flex;
+  justify-content: center; /* Center navigation links */
+  flex-wrap: wrap; /* Wrap links if needed */
   margin-right: 15px;
 }
 
 nav a {
   color: black;
   text-decoration: none;
-  /* margin: auto; */
-  margin-left: 50px;
-  font-size: 24px;
+  margin: 0 25px; /* Adjusted for mobile view */
+  font-size: 24px; /* This might be adjusted within the media query */
 }
 
 nav a:hover {
@@ -26,7 +43,58 @@ nav a:hover {
 }
 
 #loginButton {
-  font-family: "Open Sans Hebrew", sans-serif;
-  font-size: 18px;
-  margin-left: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 24px; /* This might be adjusted within the media query */
+}
+#loginButton:hover {
+  color: #df94cd;
+}
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .header-container > header {
+    display: flex;
+    justify-content: space-between; /* Adjusted for mobile view */
+    align-items: center;
+  }
+  .logo {
+    order: 2; /* Order 2 will place the logo on the right (visually left) */
+    margin-left: 0; /* Reset the margin left as it's no longer needed */
+    margin-right: 10px; /* Add some space between the logo and nav items */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Adjusts nav for hidden and active states */
+  nav {
+    display: none !important; /* Remain hidden by default */
+    width: 100%; /* Ensure full width */
+    background-color: #eee9e9; /* Consistent with the header background */
+    flex-direction: column;
+    align-items: flex-start; /* Align items for RTL */
+    padding: 10px;
+    position: static; /* Key change to ensure nav pushes content down */
+    box-sizing: border-box; /* Ensure padding is included in width */
+  }
+
+  nav.nav-active {
+    display: flex !important;
+  }
+
+  nav a {
+    font-size: 18px; /* Smaller font size for mobile */
+    margin: 10px; /* Reduced margin for mobile */
+    text-align: right; /* Ensure alignment is to the right */
+  }
 }
