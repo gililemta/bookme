@@ -136,6 +136,9 @@ select {
   max-height: 150px;
   overflow-y: auto;
   display: none;
+  background-color: rgb(255, 255, 255);
+  margin-right: calc(0.3em + 150px);
+  border-radius: 5px;
 }
 
 #autocomplete-dropdown li {
