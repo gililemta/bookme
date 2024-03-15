@@ -26,14 +26,13 @@
 .deal-item-prop {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 5px; /* Adjust spacing between properties */
+  width: 25%;
+  margin-left: auto;
 }
 
 /* Style for deal item property titles */
 .deal-item-title {
   font-weight: bold;
-  margin-right: 5px; /* Adjust spacing between title and value */
 }
 
 
@@ -79,8 +78,17 @@
     justify-content: center;
   }
 
+  .deal-actions {
+    flex-direction: row;
+    width: 35%;
+    justify-content: space-between;
+    margin: 15px;
+  }
+
   .deal-item-prop {
-    margin-right: 0; /* Adjust spacing for mobile */
+    flex-direction: row;
+    width: 100%;
+    margin: 2px;
   }
 
   .confirm-button,
