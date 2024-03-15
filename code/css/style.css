@@ -16,11 +16,13 @@ section {
   max-width: 400px;
   height: auto;
   margin: 1em;
+  
 }
 
 h2 {
   text-align: right;
 }
+
 .books-container {
   display: flex;
   flex-wrap: wrap;
@@ -38,19 +40,19 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center; /* Center items horizontally */
-  width: 200px;
-  height: 300px; 
-  margin: 16px; /* Center the book item in the grid cell */
+  width: calc(20% - 32px); /* Adjusting for 4 items per row with some margin */
+  margin: 16px; /* Keeps a consistent margin, adjust as needed */
+  height: 300px;
   justify-content: flex-end;
 }
 
 .book-item img {
-  width: 80%; /* Percentage of width relative to its container */
-  max-width: 180px; /* Maximum width for the image */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 50% !important;
+  height: auto !important; /* Maintains the aspect ratio */
 }
 
-.book-item #bookName {
+
+.book-item #bookName, #book_author_name {
   text-align: center; /* Center text for title and price */
   width: 100%;
   text-overflow: ellipsis;
@@ -60,6 +62,18 @@ h2 {
   margin-bottom: 10px;
 }
 
-#book_author_name {
-  margin-bottom: 10px;
+/* For tablets and below */
+@media (max-width: 768px) {
+  .books-container .book-item {
+    width: calc(50% - 20px); /* 2 items per row */
+    margin: 10px;
+  }
+}
+
+/* For very small screens, like mobile phones */
+@media (max-width: 480px) {
+  .books-container .book-item {
+    width: 90%; /* 1 item per row */
+    margin: 10px auto; /* Center the book items */
+  }
 }

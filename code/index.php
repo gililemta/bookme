@@ -67,6 +67,9 @@
         <div>
           <input type="submit" value="סנן ומיין">
         </div>
+        <div>
+        <input type="button" class="resetButton" value="איפוס" onclick="resetFilters()">
+        </div>
       </form>
       <?php if (isset($_GET['message'])): ?>
         <div id="message-container">

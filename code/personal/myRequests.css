@@ -36,10 +36,6 @@
   margin-right: 5px; /* Adjust spacing between title and value */
 }
 
-/* Style for deal item property values */
-.deal-item-value {
-  /* Add any specific styling for property values here */
-}
 
 .confirm-button,
 .reject-button, 
@@ -71,4 +67,27 @@
 .reject-button:hover,
 .more-info-button:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  /* Stack deal fields and actions vertically on smaller screens */
+  .deal-actions,
+  .deal-fields,
+  .deal-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .deal-item-prop {
+    margin-right: 0; /* Adjust spacing for mobile */
+  }
+
+  .confirm-button,
+  .reject-button,
+  .more-info-button {
+    margin-right: 0;
+    margin-bottom: 10px; /* Add bottom margin for spacing between buttons */
+    padding: 8px 12px; /* Adjust padding for better touch interaction */
+  }
 }

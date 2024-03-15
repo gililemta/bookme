@@ -15,9 +15,10 @@
 }
 
 form div {
+  position: relative; /* This makes the dropdown position relative to the div */
   display: flex;
   flex-direction: column;
-  margin-right: 15px; /* Spacing between inputs */
+  margin-right: 15px;
 }
 
 /* Style adjustments for inputs and selects to make them look uniform */
@@ -57,34 +58,21 @@ input[type="submit"]:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
 
-@media (max-width: 768px) {
-  .book-item {
-    width: calc(50% - 20px); /* 2 items per row on smaller screens */
-    height: calc(10%);
-  }
-  form {
-    flex-direction: column;
-  }
-
-  form div {
-    width: 100%; /* Full width on small screens */
-    margin-right: 0; /* No right margin on small screens */
-  }
-  .books-container {
-    grid-template-columns: 1fr; /* Full width items on small screens */
-  }
-}
-
 #autocomplete-dropdown {
   position: absolute;
+  width: calc(100% - 2px); /* Adjust the width to match the input field */
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   z-index: 1000;
   list-style: none;
   padding: 0;
   margin: 0;
   border: 1px solid #ccc;
-  max-height: 150px;
+  max-height: 200px;
   overflow-y: auto;
-  display: none;
+  display: none; /* This should be controlled by your JS */
 }
 
 #autocomplete-dropdown li {
@@ -93,7 +81,8 @@ input[type="submit"]:hover {
   transition: background-color 0.3s ease;
 }
 
-#autocomplete-dropdown li:hover {
+#autocomplete-dropdown li:hover,
+#autocomplete-dropdown li:focus {
   background-color: #e0e0e0;
 }
 
@@ -113,8 +102,10 @@ input[type="submit"]:hover {
 }
 
 .book-image-detail {
-  max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  width: 80%; /* Adjust if needed to control width within the container */
+  max-width: 180px; /* Maximum width, adjust based on your design */
+  height: 50px; /* Adjust height automatically to maintain aspect ratio */
+  object-fit: contain; /* Ensures the image fits within the box, adjusting as necessary */
 }
 
 .book-info {
@@ -146,8 +137,24 @@ input[type="submit"]:hover {
 }
 
 .submit-button input[type="submit"]:hover {
-  background-color: #7B1FA2; /* A darker purple on hover */
+  background-color: #0056b3; /* Darker shade on hover */
 }
+
+.resetButton {
+  background-color: #df94cd;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #9C27B0; /* A darker pink on hover */
+}
+
 /* Reset default link styles within book items */
 .books-container .book-item a {
   text-decoration: none; /* Removes underline from links */
@@ -174,3 +181,57 @@ input[type="submit"]:hover {
   max-width: 100%; /* Makes sure the image is responsive */
   height: auto; /* Maintains the aspect ratio */
 }
+@media (max-width: 768px) {
+  .book-item {
+    width: calc(50% - 20px); /* 2 items per row on smaller screens */
+    height: calc(10%);
+  }
+  form {
+    flex-direction: column;
+  }
+
+  form div {
+    width: 100%; /* Full width on small screens */
+    margin-right: 0; /* No right margin on small screens */
+  }
+  .books-container {
+    grid-template-columns: 1fr; /* Full width items on small screens */
+  }
+}
+@media (max-width: 768px) {
+  #searchPanel {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    padding: 10px; /* Reduce padding */
+  }
+
+  form div, .form-group {
+    width: 100%; /* Full width for form elements */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  input[type="text"], input[type="number"], select {
+    margin-bottom: 15px; /* Increase spacing for touch targets */
+  }
+
+  .book-detail-page, .book-item-detail {
+    padding: 10px; /* Reduce padding */
+  }
+
+  .book-image-detail {
+    width: 100%; /* Full width for images */
+  }
+
+  .book-info, .proposal-form, .submit-button {
+    margin-top: 15px; /* Adjust spacing */
+  }
+
+  .books-container .book-item {
+    width: 100%; /* Full width for book items on small screens */
+    margin: 10px 0; /* Adjust margin */
+  }
+  
+  .submit-button input[type="submit"] {
+    padding: 10px 20px; /* Adjust button padding for easier tapping */
+  }
+}
+
