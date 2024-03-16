@@ -1,1 +1,3 @@
-# bookme
+# Bookme
+
+BookMe is a platform 
