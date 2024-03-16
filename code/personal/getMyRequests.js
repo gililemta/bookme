@@ -64,7 +64,6 @@ function fetchRequests() {
           // Create the props container
           const propsContainer = document.createElement("div");
           propsContainer.classList.add("deal-fields");
-          propsContainer.style.flex = "5";
 
           // Add book name
           propsContainer.appendChild(createProp("שם הספר", deal.book_name));
@@ -111,7 +110,6 @@ function fetchRequests() {
           // Create the buttons container
           const buttonsContainer = document.createElement("div");
           buttonsContainer.classList.add("deal-actions");
-          buttonsContainer.style.flex = "1";
 
           // Add confirm button
           const confirmButton = document.createElement("button");
