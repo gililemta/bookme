@@ -85,7 +85,10 @@ function fetchRequests() {
           if (deal.deal_type === 2) {
             // Add suggested price
             propsContainer.appendChild(
-              createProp("מחיר", deal.book_suggested_price)
+              createProp("מחיר מבוקש", deal.book_required_price)
+            );
+            propsContainer.appendChild(
+              createProp("מחיר מוצע", deal.book_suggested_price)
             );
           } else if (deal.deal_type === 1) {
             // Add suggested books
@@ -105,6 +108,9 @@ function fetchRequests() {
             suggestedBooks.appendChild(booksList);
 
             propsContainer.appendChild(suggestedBooks);
+            const emptyEl = document.createElement("div");
+            emptyEl.classList.add("deal-item-prop");
+            propsContainer.appendChild(emptyEl);
           }
 
           // Create the buttons container

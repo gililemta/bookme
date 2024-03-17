@@ -64,10 +64,8 @@ function fetchOffers() {
           // Create the props container
           const propsContainer = document.createElement("div");
           propsContainer.classList.add("deal-fields");
-          
           // Add book name
           propsContainer.appendChild(createProp("שם הספר", deal.book_name));
-
           // Add seller email
           propsContainer.appendChild(createProp("שם המוכר", deal.seller_name));
 
@@ -85,7 +83,10 @@ function fetchOffers() {
           if (deal.deal_type === 2) {
             // Add suggested price
             propsContainer.appendChild(
-              createProp("מחיר", deal.book_suggested_price)
+              createProp("מחיר מבוקש", deal.book_required_price)
+            );
+             propsContainer.appendChild(
+              createProp("מחיר מוצע", deal.book_suggested_price)
             );
           } else if (deal.deal_type === 1) {
             // Add suggested books
@@ -105,6 +106,9 @@ function fetchOffers() {
             suggestedBooks.appendChild(booksList);
 
             propsContainer.appendChild(suggestedBooks);
+            const emptyEl = document.createElement("div");
+            emptyEl.classList.add("deal-item-prop");
+            propsContainer.appendChild(emptyEl);
           }
 
           // Create the buttons container
