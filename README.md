@@ -11,9 +11,9 @@ Payment Integration: Secure payment integration for seamless transactions within
 
 ## To get started with BookMe, follow these simple steps:
 
-Clone the repository: git clone https://github.com/yourusername/bookme.git
-Install dependencies: npm install
-Set up your environment variables.
+Clone the repository: git clone https://github.com/yourusername/bookme.git<br>
+Install dependencies: npm install<br>
+Set up your environment variables.<br>
 Run the application: npm start
 
 ## Contributing
