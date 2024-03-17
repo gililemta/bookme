@@ -8,7 +8,7 @@
     <script src="header/loadHeaderAndFooter.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <script src="js/script.js"></script>
-    <title>BookMe Homepage</title>
+    <title>BookMe Homepage!</title>
   </head>
   <body>
     <div id="header-container"></div>
