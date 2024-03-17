@@ -17,7 +17,7 @@
         <div>
           <label for="cities">עיר:</label>
           <input
-            autocomplete="false"
+            autocomplete="off"
             type="text"
             id="cities"
             name="cities"
@@ -83,31 +83,36 @@
       <?php
       include 'db/db.php';
 
-      // SQL to fetch books data
-      $sql = "SELECT * FROM books_users WHERE book_quantity >= 1 AND deal_type IN (1, 2)";
-        // Append conditions based on user input
-        if (!empty($_GET['cities'])) {
-            $sql .= " AND user_cities LIKE '%" . $conn->real_escape_string($_GET['cities']) . "%'";
-        }
-        if (!empty($_GET['book'])) {
-          $sql .= " AND book_name LIKE '%" . $conn->real_escape_string($_GET['book']) . "%'";
+      // SQL to fetch books data with JOIN clause
+      $sql = "SELECT bu.*, u.* FROM books_users bu
+            JOIN users u ON bu.user_mail = u.mail
+            WHERE bu.book_quantity >= 1 AND bu.deal_type IN (1, 2)";
+
+      // Append conditions based on user input
+      if (!empty($_GET['cities'])) {
+        $sql .= " AND u.cities LIKE '%" . $conn->real_escape_string($_GET['cities']) . "%'";
       }
-        if (!empty($_GET['author'])) {
-            $sql .= " AND book_author_name LIKE '%" . $conn->real_escape_string($_GET['author']) . "%'";
-        }
-        if (!empty($_GET['genre'])) {
-            $sql .= " AND book_genre = '" . $conn->real_escape_string($_GET['genre']) . "'";
-        }
-        if (!empty($_GET['deal_type'])) {
-            $sql .= " AND deal_type = " . intval($_GET['deal_type']);
-          }
+      if (!empty($_GET['book'])) {
+        $sql .= " AND bu.book_name LIKE '%" . $conn->real_escape_string($_GET['book']) . "%'";
+      }
+      if (!empty($_GET['author'])) {
+        $sql .= " AND bu.book_author_name LIKE '%" . $conn->real_escape_string($_GET['author']) . "%'";
+      }
+      if (!empty($_GET['genre'])) {
+        $sql .= " AND bu.book_genre = '" . $conn->real_escape_string($_GET['genre']) . "'";
+      }
+      if (!empty($_GET['deal_type'])) {
+        $sql .= " AND bu.deal_type = " . intval($_GET['deal_type']);
+      }
+
       if (!empty($_GET['sort'])) {
         if ($_GET['sort'] === 'price_low_high') {
-            $sql .= " ORDER BY book_required_price ASC"; // Sort by price from low to high
+          $sql .= " ORDER BY bu.book_required_price ASC"; // Sort by price from low to high
         } else if ($_GET['sort'] === 'price_high_low') {
-            $sql .= " ORDER BY book_required_price DESC"; // Sort by price from high to low
+          $sql .= " ORDER BY bu.book_required_price DESC"; // Sort by price from high to low
         }
-    }
+      }
+
     
       $result = $conn->query($sql);
       echo "<div class='books-container'>"; 

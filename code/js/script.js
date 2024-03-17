@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const listItem = document.createElement("li");
         listItem.textContent = city["שם_ישוב"];
         listItem.addEventListener("click", function () {
-          cityInput.value = city["שם_ישוב"];
+          cityInput.value = city["שם_ישוב"].trim();
           clearAutocomplete();
         });
         autocompleteDropdown.appendChild(listItem);
